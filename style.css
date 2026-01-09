@@ -65,14 +65,16 @@ footer {
 footer a { color: #4facfe; text-decoration: none; font-weight: bold; }
 
 .boki-avatar {
-    width: 80px; /* Aceasta va micșora imaginea la o mărime potrivită pentru logo */
-    height: 80px;
-    object-fit: contain; /* Asigură că imaginea nu se deformează */
-    vertical-align: middle;
-    margin-bottom: 10px; /* Adaugă puțin spațiu sub imagine */
-    display: block; /* Pune imaginea deasupra textului */
+    width: 100px; /* Dimensiune fixă */
+    height: 100px; /* Trebuie să fie egală cu width pentru cerc perfect */
+    object-fit: cover; /* Taie marginile în plus pentru a umple cercul */
+    border-radius: 50%; /* Această linie face poza rotundă */
+    border: 3px solid white; /* Opțional: o bordură albă care o scoate în evidență */
+    display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Umbră fină pentru aspect profesional */
 }
 
 header h1 {
