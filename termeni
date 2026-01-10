@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termeni și Condiții - BoKi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .legal-content { padding: 80px 10%; max-width: 800px; margin: auto; }
+        h1 { color: #1a1a2e; margin-bottom: 30px; }
+        h2 { color: #4facfe; margin-top: 25px; }
+        p { color: #444; line-height: 1.8; }
+        .back-btn { display: inline-block; margin-top: 40px; color: #4facfe; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="legal-content">
+        <h1>Termeni și Condiții de Utilizare</h1>
+        <p>Ultima actualizare: Ianuarie 2026</p>
+
+        <h2>1. Acceptarea Termenilor</h2>
+        <p>Prin descărcarea și utilizarea aplicației BoKi, părintele sau tutorele legal își dă acordul cu privire la acești termeni. Dacă nu sunteți de acord, vă rugăm să nu utilizați aplicația.</p>
+
+        <h2>2. Natura Serviciului (Inteligență Artificială)</h2>
+        <p>BoKi utilizează tehnologia Google Gemini AI pentru a genera răspunsuri educative. Utilizatorul înțelege că răspunsurile sunt generate automat și pot conține ocazional erori factuale sau interpretări greșite. Aplicația este un instrument de divertisment educațional și nu înlocuiește educația formală sau supravegherea parentală.</p>
+
+        <h2>3. Limitarea Răspunderii</h2>
+        <p>Dezvoltatorul BoKi nu va fi tras la răspundere pentru nicio daună, directă sau indirectă, rezultată din utilizarea informațiilor generate de AI. Este responsabilitatea părintelui să monitorizeze interacțiunea copilului cu aplicația.</p>
+
+        <h2>4. Abonamente și Plăți (Premium)</h2>
+        <p>Accesul la funcțiile Premium se face pe bază de abonament gestionat exclusiv prin sistemul Google Play Billing. Anularea abonamentelor se face din setările contului Google Play.</p>
+
+        <h2>5. Utilizare Adecvată</h2>
+        <p>Este interzisă încercarea de a manipula algoritmii AI pentru a genera conținut neadecvat. Orice tentativă de abuz va duce la suspendarea accesului la serviciu.</p>
+
+        <a href="index.html" class="back-btn">← Înapoi la pagina principală</a>
+    </div>
+</body>
+</html>
