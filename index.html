@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoKi - Inteligența Artificială pentru Copii</title>
+    <title>BoKi - AI Companion</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -14,19 +14,33 @@
             <img src="logo_boki.jpeg" alt="BoKi Logo" class="nav-logo">
             <span>BoKi</span>
         </div>
-        <a href="politica.html" class="nav-link">Confidențialitate</a>
+
+        <!-- 🔹 Selector limbă -->
+        <select onchange="loadLanguage(this.value)" id="lang-switch">
+            <option value="ro">RO</option>
+            <option value="en">EN</option>
+        </select>
+
+        <a href="politica.html" class="nav-link" data-i18n="privacy"></a>
     </nav>
 
     <header class="hero-section">
         <div class="hero-content">
             <span class="badge">Powered by Gemini AI</span>
-            <h1>Învață, Joacă-te, <br><span class="text-gradient">Explorează cu BoKi</span></h1>
-            <p>Primul companion educațional care folosește puterea AI pentru a transforma curiozitatea copilului tău într-o aventură magică de învățare.</p>
+
+            <h1>
+                <span data-i18n="hero_title_1"></span><br>
+                <span class="text-gradient" data-i18n="hero_title_2"></span>
+            </h1>
+
+            <p data-i18n="hero_desc"></p>
+
             <div class="hero-buttons">
-                <a href="#" class="btn-primary">Descarcă acum</a>
-                <a href="#features" class="btn-secondary">Vezi detalii</a>
+                <a href="#" class="btn-primary" data-i18n="download"></a>
+                <a href="#features" class="btn-secondary" data-i18n="details"></a>
             </div>
         </div>
+
         <div class="hero-visual">
             <div class="floating-card">
                 <img src="logo_boki.jpeg" alt="BoKi" class="main-avatar">
@@ -37,30 +51,64 @@
     <section id="features" class="features-grid">
         <div class="feature-card">
             <div class="icon">🧠</div>
-            <h3>Inteligență Adaptivă</h3>
-            <p>BoKi ajustează nivelul explicațiilor în funcție de vârsta și progresul copilului tău.</p>
+            <h3 data-i18n="feature1_title"></h3>
+            <p data-i18n="feature1_desc"></p>
         </div>
+
         <div class="feature-card">
             <div class="icon">🛡️</div>
-            <h3>Siguranță Maximă</h3>
-            <p>Filtre avansate Gemini pentru un mediu 100% sigur și educativ.</p>
+            <h3 data-i18n="feature2_title"></h3>
+            <p data-i18n="feature2_desc"></p>
         </div>
+
         <div class="feature-card">
             <div class="icon">🚀</div>
-            <h3>Fără Limite</h3>
-            <p>De la matematică la povești create pe loc, BoKi are răspuns la orice "De ce?".</p>
+            <h3 data-i18n="feature3_title"></h3>
+            <p data-i18n="feature3_desc"></p>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <p>© 2026 BoKi AI Companion. Toate drepturile rezervate.</p>
+            <p data-i18n="footer"></p>
             <div class="footer-links">
-                <a href="politica.html">Politică de Confidențialitate</a>
-                <a href="termeni.html">Termeni și Condiții</a> <a href="mailto:boki.companion@gmail.com">Suport</a>
+                <a href="politica.html" data-i18n="privacy"></a>
+                <a href="termeni.html" data-i18n="terms"></a>
+                <a href="mailto:boki.companion@gmail.com" data-i18n="support"></a>
             </div>
         </div>
     </footer>
+
+<script>
+let currentLang = "ro";
+
+async function loadLanguage(lang) {
+    const response = await fetch(`lang/${lang}.json`);
+    const translations = await response.json();
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[key]) {
+            el.innerText = translations[key];
+        }
+    });
+
+    localStorage.setItem("lang", lang);
+    document.getElementById("lang-switch").value = lang;
+}
+
+function detectLanguage() {
+    const saved = localStorage.getItem("lang");
+    if (saved) return saved;
+
+    return navigator.language.startsWith("ro") ? "ro" : "en";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const lang = detectLanguage();
+    loadLanguage(lang);
+});
+</script>
 
 </body>
 </html>
