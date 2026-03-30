@@ -10,19 +10,19 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">
-            <img src="logo_boki.jpeg" alt="BoKi Logo" class="nav-logo">
-            <span>BoKi</span>
-        </div>
+    <div class="logo">
+        <img src="logo_boki.jpeg" alt="BoKi Logo" class="nav-logo">
+        <span>BoKi</span>
+    </div>
 
-        <!-- 🔹 Selector limbă -->
-        <select onchange="loadLanguage(this.value)" id="lang-switch">
-            <option value="ro">RO</option>
-            <option value="en">EN</option>
-        </select>
+    <!-- 🔥 Switch limbă premium -->
+    <div class="lang-switch">
+        <button onclick="setLang('ro')" id="btn-ro">🇷🇴</button>
+        <button onclick="setLang('en')" id="btn-en">🇬🇧</button>
+    </div>
 
-        <a href="politica.html" class="nav-link" data-i18n="privacy"></a>
-    </nav>
+    <a href="politica.html" class="nav-link" data-i18n="privacy"></a>
+</nav>
 
     <header class="hero-section">
         <div class="hero-content">
