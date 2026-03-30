@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoKi - AI Companion</title>
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar">
+<nav class="navbar">
     <div class="logo">
         <img src="logo_boki.jpeg" alt="BoKi Logo" class="nav-logo">
         <span>BoKi</span>
@@ -24,60 +25,60 @@
     <a href="politica.html" class="nav-link" data-i18n="privacy"></a>
 </nav>
 
-    <header class="hero-section">
-        <div class="hero-content">
-            <span class="badge">Powered by Gemini AI</span>
+<header class="hero-section">
+    <div class="hero-content">
+        <span class="badge">Powered by Gemini AI</span>
 
-            <h1>
-                <span data-i18n="hero_title_1"></span><br>
-                <span class="text-gradient" data-i18n="hero_title_2"></span>
-            </h1>
+        <h1>
+            <span data-i18n="hero_title_1"></span><br>
+            <span class="text-gradient" data-i18n="hero_title_2"></span>
+        </h1>
 
-            <p data-i18n="hero_desc"></p>
+        <p data-i18n="hero_desc"></p>
 
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary" data-i18n="download"></a>
-                <a href="#features" class="btn-secondary" data-i18n="details"></a>
-            </div>
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary" data-i18n="download"></a>
+            <a href="#features" class="btn-secondary" data-i18n="details"></a>
         </div>
+    </div>
 
-        <div class="hero-visual">
-            <div class="floating-card">
-                <img src="logo_boki.jpeg" alt="BoKi" class="main-avatar">
-            </div>
+    <div class="hero-visual">
+        <div class="floating-card">
+            <img src="logo_boki.jpeg" alt="BoKi" class="main-avatar">
         </div>
-    </header>
+    </div>
+</header>
 
-    <section id="features" class="features-grid">
-        <div class="feature-card">
-            <div class="icon">🧠</div>
-            <h3 data-i18n="feature1_title"></h3>
-            <p data-i18n="feature1_desc"></p>
-        </div>
+<section id="features" class="features-grid">
+    <div class="feature-card">
+        <div class="icon">🧠</div>
+        <h3 data-i18n="feature1_title"></h3>
+        <p data-i18n="feature1_desc"></p>
+    </div>
 
-        <div class="feature-card">
-            <div class="icon">🛡️</div>
-            <h3 data-i18n="feature2_title"></h3>
-            <p data-i18n="feature2_desc"></p>
-        </div>
+    <div class="feature-card">
+        <div class="icon">🛡️</div>
+        <h3 data-i18n="feature2_title"></h3>
+        <p data-i18n="feature2_desc"></p>
+    </div>
 
-        <div class="feature-card">
-            <div class="icon">🚀</div>
-            <h3 data-i18n="feature3_title"></h3>
-            <p data-i18n="feature3_desc"></p>
-        </div>
-    </section>
+    <div class="feature-card">
+        <div class="icon">🚀</div>
+        <h3 data-i18n="feature3_title"></h3>
+        <p data-i18n="feature3_desc"></p>
+    </div>
+</section>
 
-    <footer>
-        <div class="footer-content">
-            <p data-i18n="footer"></p>
-            <div class="footer-links">
-                <a href="politica.html" data-i18n="privacy"></a>
-                <a href="termeni.html" data-i18n="terms"></a>
-                <a href="mailto:boki.companion@gmail.com" data-i18n="support"></a>
-            </div>
+<footer>
+    <div class="footer-content">
+        <p data-i18n="footer"></p>
+        <div class="footer-links">
+            <a href="politica.html" data-i18n="privacy"></a>
+            <a href="termeni.html" data-i18n="terms"></a>
+            <a href="mailto:boki.companion@gmail.com" data-i18n="support"></a>
         </div>
-    </footer>
+    </div>
+</footer>
 
 <script>
 let currentLang = "ro";
@@ -88,13 +89,33 @@ async function loadLanguage(lang) {
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
+
         if (translations[key]) {
-            el.innerText = translations[key];
+            el.style.opacity = 0;
+            el.style.transform = "translateY(5px)";
+
+            setTimeout(() => {
+                el.innerText = translations[key];
+                el.style.opacity = 1;
+                el.style.transform = "translateY(0)";
+            }, 120);
         }
     });
 
     localStorage.setItem("lang", lang);
-    document.getElementById("lang-switch").value = lang;
+    currentLang = lang;
+    updateActiveButton(lang);
+}
+
+function setLang(lang) {
+    loadLanguage(lang);
+}
+
+function updateActiveButton(lang) {
+    document.getElementById("btn-ro").classList.remove("active");
+    document.getElementById("btn-en").classList.remove("active");
+
+    document.getElementById(`btn-${lang}`).classList.add("active");
 }
 
 function detectLanguage() {
